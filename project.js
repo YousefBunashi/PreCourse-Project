@@ -20,7 +20,22 @@
  */
 function sumOdds(numbers) {
   // Your code here
+  let sum = 0;
+  numbers.forEach(function (number) {
+    if (number % 2 !== 0) {
+      sum = sum + number;
+    }
+  });
+  return sum;
 }
+// let odds = numbers.filter(function (number) {
+//   return number % 2 !== 0;
+// });
+
+//   return odds.reduce(function (a, b) {
+//     return a + b;
+//   }, 0);
+// }
 
 /**
  * characterCount(string, c):
@@ -36,6 +51,14 @@ function sumOdds(numbers) {
  */
 function characterCount(string, c) {
   // Your code here
+  let count = 0;
+  let characters = [...string];
+
+  characters.forEach(function (character) {
+    if (character.toUpperCase() === c.toUpperCase()) count = count + 1;
+    // console.log("count");
+  });
+  return count;
 }
 
 /**
@@ -90,6 +113,9 @@ function largestIncrement(numbers) {
  */
 function afterX(numbers, x) {
   // Your code here
+  const inedx = numbers.indexOf(x);
+  const slicedNumbers = numbers.slice(inedx + 1);
+  return slicedNumbers;
 }
 
 /**
@@ -105,6 +131,7 @@ function afterX(numbers, x) {
  */
 function abbreviate(firstName, lastName) {
   // Your code here
+  return `${firstName.toUpperCase()[0]}${lastName.toUpperCase()[0]}`;
 }
 
 /**
@@ -119,6 +146,9 @@ function abbreviate(firstName, lastName) {
  */
 function isUpperCase(string) {
   // Your code here
+
+  if (string === string.toUpperCase()) return true;
+  else return false;
 }
 
 /**
@@ -133,6 +163,7 @@ function isUpperCase(string) {
  */
 function elementInArray(numbers, x) {
   // Your code here
+  return numbers.includes(x);
 }
 
 /**
@@ -147,6 +178,7 @@ function elementInArray(numbers, x) {
  */
 function reverseString(string) {
   // Your code here
+  return string.split("").reverse().join("");
 }
 
 // console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
@@ -157,7 +189,7 @@ function reverseString(string) {
 // console.log(abbreviate("miss", "Stephane"));
 // console.log(isUpperCase("JCREW"));
 // console.log(elementInArray([5, 6, 7], 8));
-// console.log(reverseString("CODED"));
+console.log(reverseString("CODED"));
 
 module.exports = {
   sumOdds,
